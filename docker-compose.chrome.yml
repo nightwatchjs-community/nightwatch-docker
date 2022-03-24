@@ -12,7 +12,7 @@ services:
     build: .
     init: true
     volumes:
-      - .:/app
+      - .:/app:rw
     network_mode: host
     environment:
       - BROWSER=chrome
