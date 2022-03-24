@@ -32,9 +32,9 @@ USER nightwatch
 
 WORKDIR /app
 
-RUN mkdir /app/reports /app/tests_output
-RUN chown -R nightwatch:nightwatch /app/reports
-RUN chown -R nightwatch:nightwatch /app/tests_output
+# RUN mkdir /app/reports /app/tests_output
+# RUN chown -R nightwatch:nightwatch /app/reports
+# RUN chown -R nightwatch:nightwatch /app/tests_output
 
 # RUN echo ">>>>>>>>>>>>>>"
 # CMD sleep 1000000000
