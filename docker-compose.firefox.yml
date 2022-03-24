@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  firefox:
+    image: selenium/standalone-firefox
+    shm_size: 2gb
+    ports:
+      - 4444:4444
+    healthcheck:
+      test: geckodriver --version
+
+  nightwatch:
+    build: .
+    init: true
+    volumes:
+      - .:/app
+    network_mode: host
+    environment:
+      - BROWSER=firefox
+    depends_on:
+      firefox:
+        condition: service_healthy

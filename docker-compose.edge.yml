@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  edge:
+    image: selenium/standalone-edge
+    shm_size: 2gb
+    ports:
+      - 4444:4444
+    healthcheck:
+      test: msedgedriver --version
+
+  nightwatch:
+    build: .
+    init: true
+    volumes:
+      - .:/app
+    network_mode: host
+    environment:
+      - BROWSER=edge
+    depends_on:
+      edge:
+        condition: service_healthy

@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  chrome:
+    image: selenium/standalone-chrome
+    shm_size: 2gb
+    ports:
+      - 4444:4444
+    healthcheck:
+      test: chromedriver --version
+
+  nightwatch:
+    build: .
+    init: true
+    volumes:
+      - .:/app
+    network_mode: host
+    environment:
+      - BROWSER=chrome
+    depends_on:
+      chrome:
+        condition: service_healthy
