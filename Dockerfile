@@ -32,7 +32,7 @@ RUN adduser -D -u 1000 nightwatch
 WORKDIR /app
 
 RUN chown -R nightwatch:nightwatch /app
-RUN chmod 755 /app
+RUN chmod 777 /app
 
 USER nightwatch
 # RUN mkdir /app/reports /app/tests_output
