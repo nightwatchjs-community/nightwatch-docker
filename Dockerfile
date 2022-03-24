@@ -32,4 +32,7 @@ WORKDIR /app
 RUN adduser -D -u 1000 nightwatch
 USER nightwatch
 
+# RUN echo ">>>>>>>>>>>>>>"
+# CMD sleep 1000000000
+# ENTRYPOINT ["nightwatch"]
 CMD nightwatch -e ${BROWSER}
