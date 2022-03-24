@@ -30,8 +30,6 @@ ENV PATH=$PATH:/usr/lib/nightwatch/node_modules/.bin
 RUN adduser -D -u 1000 nightwatch
 USER nightwatch
 
-RUN mkdir -p /app
-RUN chown nightwatch:nightwatch /app
 WORKDIR /app
 
 RUN mkdir /app/reports /app/tests_output

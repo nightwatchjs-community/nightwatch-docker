@@ -11,6 +11,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+      options: --user root -v ${{ github.workspace }}:/app/:rw
     steps:
       - uses: actions/checkout@v2
       - name: Test chrome standalone with nightwatch
