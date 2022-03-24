@@ -28,13 +28,13 @@ ENV PATH=$PATH:/usr/lib/nightwatch/node_modules/.bin
 # Avoid permission issues with host mounts by assigning a user/group with
 # uid/gid 1000 (usually the ID of the first user account on GNU/Linux):
 RUN adduser -D -u 1000 nightwatch
-USER nightwatch
 
 WORKDIR /app
 
 RUN chown -R nightwatch:nightwatch /app
 RUN chmod 755 /app
 
+USER nightwatch
 # RUN mkdir /app/reports /app/tests_output
 # RUN chown -R nightwatch:nightwatch /app/reports
 # RUN chown -R nightwatch:nightwatch /app/tests_output
