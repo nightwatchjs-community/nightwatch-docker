@@ -13,5 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: chowing things
+        run: chown -R 1001:1001 /github/home/tests_output && echo "pwn dat tests_output"
       - name: Test chrome standalone with nightwatch
         run: docker-compose -f docker-compose.chrome.yml up --exit-code-from nightwatch
