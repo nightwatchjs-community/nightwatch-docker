@@ -13,6 +13,7 @@ services:
     init: true
     volumes:
       - .:/app:rw
+      - ./reports:/app/reports
     network_mode: host
     environment:
       - BROWSER=chrome
