@@ -31,18 +31,11 @@ RUN adduser -D -u 1000 nightwatch
 
 WORKDIR /app
 
-RUN chown -R nightwatch:nightwatch /app
-RUN chmod 777 /app
-
+# RUN chown -R nightwatch:nightwatch /app
+# RUN chmod 777 /app
 COPY --chown=nightwatch:nightwatch . /app/
-RUN ls -1 /app
-
 
 USER nightwatch
-# RUN mkdir /app/reports /app/tests_output
-# RUN chown -R nightwatch:nightwatch /app/reports
 
-# RUN echo ">>>>>>>>>>>>>>"
-# CMD sleep 1000000000
 # ENTRYPOINT ["nightwatch"]
 CMD nightwatch -e ${BROWSER} --output tests-output --verbose
