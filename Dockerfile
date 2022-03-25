@@ -3,7 +3,6 @@ FROM alpine:latest
 RUN apk --no-cache add \
     nodejs \
     npm \
-    busybox-extras \
   && npm install -g \
     npm@latest \
   # Cleaning up obsolete files:
@@ -36,4 +35,4 @@ COPY --chown=nightwatch:nightwatch . /app/
 USER nightwatch
 
 # ENTRYPOINT ["nightwatch"]
-CMD nightwatch -e ${BROWSER} --verbose
+CMD nightwatch -e ${BROWSER} --output tests-output --verbose
