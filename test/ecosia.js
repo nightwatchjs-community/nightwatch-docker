@@ -11,9 +11,6 @@ describe('Ecosia.org Demo', function() {
       .assert.visible('button[type=submit]')
       .click('button[type=submit]')
       .assert.textContains('.mainline-results', 'Nightwatch.js');
-    console.log('>>>>>>>>>>>>>>>>>>');
-    console.log('__dirname', __dirname);
-    console.log('__filename', __filename);
   });
 
   after(browser => browser.end());

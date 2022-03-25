@@ -34,5 +34,5 @@ COPY --chown=nightwatch:nightwatch . /app/
 
 USER nightwatch
 
-# ENTRYPOINT ["nightwatch"]
-CMD nightwatch -e ${BROWSER} --output tests-output --verbose
+ENTRYPOINT ["sh", "-c", "nightwatch", "-e", "${BROWSER}", "--output", "tests-output", "--verbose"]
+# CMD nightwatch -e ${BROWSER} --output tests-output --verbose
