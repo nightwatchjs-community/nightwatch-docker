@@ -34,6 +34,8 @@ WORKDIR /app
 RUN chown -R nightwatch:nightwatch /app
 RUN chmod 777 /app
 
+copy . /app/
+
 USER nightwatch
 # RUN mkdir /app/reports /app/tests_output
 # RUN chown -R nightwatch:nightwatch /app/reports
