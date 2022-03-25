@@ -3,7 +3,6 @@ FROM alpine:latest
 RUN apk --no-cache add \
     nodejs \
     npm \
-    busybox-extras \
   && npm install -g \
     npm@latest \
   # Cleaning up obsolete files:
@@ -25,14 +24,14 @@ ENV NODE_PATH=/usr/lib/nightwatch/node_modules
 # Extend path to be able to run installed binaries:
 ENV PATH=$PATH:/usr/lib/nightwatch/node_modules/.bin
 
-WORKDIR /app
-
 # Avoid permission issues with host mounts by assigning a user/group with
 # uid/gid 1000 (usually the ID of the first user account on GNU/Linux):
 RUN adduser -D -u 1000 nightwatch
+
+WORKDIR /app
+
+COPY --chown=nightwatch:nightwatch . /app/
+
 USER nightwatch
 
-# RUN echo ">>>>>>>>>>>>>>"
-# CMD sleep 1000000000
-# ENTRYPOINT ["nightwatch"]
-CMD nightwatch -e ${BROWSER}
+CMD nightwatch -e ${BROWSER} --output tests-output --verbose

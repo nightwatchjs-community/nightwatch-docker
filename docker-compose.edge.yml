@@ -11,8 +11,6 @@ services:
   nightwatch:
     build: .
     init: true
-    volumes:
-      - .:/app
     network_mode: host
     environment:
       - BROWSER=edge
