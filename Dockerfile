@@ -33,7 +33,6 @@ WORKDIR /app
 
 RUN chown -R nightwatch:nightwatch /app
 RUN chmod 777 /app
-RUN chown -R nightwatch:nightwatch tests-output
 
 USER nightwatch
 # RUN mkdir /app/reports /app/tests_output
