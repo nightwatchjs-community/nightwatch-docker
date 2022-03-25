@@ -42,4 +42,4 @@ USER nightwatch
 # RUN echo ">>>>>>>>>>>>>>"
 # CMD sleep 1000000000
 # ENTRYPOINT ["nightwatch"]
-CMD nightwatch -e ${BROWSER} -output_folder tests-output
+CMD nightwatch -e ${BROWSER} --output tests-output
