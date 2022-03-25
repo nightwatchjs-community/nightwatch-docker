@@ -34,7 +34,9 @@ WORKDIR /app
 RUN chown -R nightwatch:nightwatch /app
 RUN chmod 777 /app
 
-copy . /app/
+COPY --chown=nightwatch:nightwatch . /app/
+RUN ls -1 /app
+
 
 USER nightwatch
 # RUN mkdir /app/reports /app/tests_output
@@ -43,4 +45,4 @@ USER nightwatch
 # RUN echo ">>>>>>>>>>>>>>"
 # CMD sleep 1000000000
 # ENTRYPOINT ["nightwatch"]
-CMD nightwatch -e ${BROWSER} --output tests-output
+CMD nightwatch -e ${BROWSER} --output tests-output --verbose
