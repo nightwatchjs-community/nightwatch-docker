@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/vaibhavsingh97/nightwatch-docker#readme",
   "dependencies": {
-    "nightwatch": "^2.0.10"
+    "nightwatch": "^2.2.2"
   }
 }
