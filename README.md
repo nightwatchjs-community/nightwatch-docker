@@ -1,6 +1,6 @@
 # nightwatch-docker
 
-[![nightwatch-docker-workflow](https://github.com/vaibhavsingh97/nightwatch-docker/actions/workflows/workflow.yml/badge.svg)](https://github.com/vaibhavsingh97/nightwatch-docker/actions/workflows/workflow.yml)
+[![nightwatch-docker-workflow](https://github.com/nightwatchjs/nightwatch-docker/actions/workflows/workflow.yml/badge.svg)](https://github.com/nightwatchjs/nightwatch-docker/actions/workflows/workflow.yml)
 
 Docker setup with screen recording support for [Nightwatch][NightwatchLink] containerized versions of Chrome, Firefox and Edge on Linux.
 
