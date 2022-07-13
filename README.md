@@ -26,7 +26,7 @@ Docker setup with screen recording support for [Nightwatch][NightwatchLink] cont
 
 There are two ways a user can run tests with Nightwatch using docker
 
-1. Using Docker images (As shown in quick start)
+1. ## Using Docker images (As shown in quick start)
 
    We can use different docker images to start different containers for different browsers.
 
@@ -36,7 +36,7 @@ There are two ways a user can run tests with Nightwatch using docker
 
    ⚠️ Only one docker container can be run at a time, as port will conflict.
 
-   ## Video Recording
+   ### Video Recording
 
    Tests execution can be recorded by using the `selenium/video` Docker image. One container is needed per each container where a browser is running. This means if you are running 5 Nodes/Standalone containers, you will need 5 video containers, the mapping is 1-1.
 
@@ -51,38 +51,38 @@ There are two ways a user can run tests with Nightwatch using docker
    $ docker stop firefox && docker rm firefox
    ```
 
-2. Docker compose
+2. ## Using Docker compose
 
-## ![Chrome][ChromeImage] Chrome
+   ### ![Chrome][ChromeImage] Chrome
 
-```sh
-docker-compose -f docker-compose.chrome.yml up --exit-code-from nightwatch
-```
+   ```sh
+   docker-compose -f docker-compose.chrome.yml up --exit-code-from nightwatch
+   ```
 
-## ![Firefox][FirefoxImage] Firefox
+   ### ![Firefox][FirefoxImage] Firefox
 
-```sh
-docker-compose -f docker-compose.firefox.yml up --exit-code-from nightwatch
-```
+   ```sh
+   docker-compose -f docker-compose.firefox.yml up --exit-code-from nightwatch
+   ```
 
-## ![Edge][EdgeImage] Edge
+   ### ![Edge][EdgeImage] Edge
 
-```sh
-docker-compose -f docker-compose.edge.yml up --exit-code-from nightwatch
-```
+   ```sh
+   docker-compose -f docker-compose.edge.yml up --exit-code-from nightwatch
+   ```
 
-## Selenium Hub
+   ### Selenium Hub
 
-```sh
-docker-compose -f docker-compose.selenium-hub.yml up --exit-code-from nightwatch
-```
+   ```sh
+   docker-compose -f docker-compose.selenium-hub.yml up --exit-code-from nightwatch
+   ```
 
-Stop and remove container set:
+   Stop and remove container set:
 
-```sh
-docker-compose -f docker-compose.<service-name>.yml down
-```
-> service-name would be from either of these `chrome/firefox/edge/selenium-hub`
+   ```sh
+   docker-compose -f docker-compose.<service-name>.yml down
+   ```
+   > service-name would be from either of these `chrome/firefox/edge/selenium-hub`
 
 ## 🐛 Issues
 
