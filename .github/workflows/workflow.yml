@@ -20,7 +20,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: chrome-video
-          path: "*.mp4"
+          path: "videos/*.mp4"
           retention-days: 30
   firefox:
     runs-on: ubuntu-latest
