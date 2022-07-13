@@ -8,6 +8,16 @@ services:
     healthcheck:
       test: geckodriver --version
 
+  firefox_video:
+    image: selenium/video
+    volumes:
+      - ./videos:/videos
+    depends_on:
+      - firefox
+    environment:
+      - DISPLAY_CONTAINER_NAME=firefox
+      - FILE_NAME=firefox_video.mp4
+
   nightwatch:
     build: .
     init: true

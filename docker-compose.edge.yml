@@ -8,6 +8,16 @@ services:
     healthcheck:
       test: msedgedriver --version
 
+  edge_video:
+    image: selenium/video
+    volumes:
+      - ./videos:/videos
+    depends_on:
+      - edge
+    environment:
+      - DISPLAY_CONTAINER_NAME=edge
+      - FILE_NAME=edge_video.mp4
+
   nightwatch:
     build: .
     init: true
