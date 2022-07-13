@@ -15,25 +15,36 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test chrome standalone with nightwatch
         run: docker-compose -f docker-compose.chrome.yml up --exit-code-from nightwatch
-      - name: Run ls command
-        run: ls -la videos
       - uses: actions/upload-artifact@v2
         with:
           name: chrome-video
           path: "videos/*.mp4"
-          retention-days: 30
+          retention-days: 90
+
   firefox:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Test firefox standalone with nightwatch
         run: docker-compose -f docker-compose.firefox.yml up --exit-code-from nightwatch
+      - uses: actions/upload-artifact@v2
+        with:
+          name: firefox-video
+          path: "videos/*.mp4"
+          retention-days: 90
+
   edge:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Test edge standalone with nightwatch
         run: docker-compose -f docker-compose.edge.yml up --exit-code-from nightwatch
+      - uses: actions/upload-artifact@v2
+        with:
+          name: edge-video
+          path: "videos/*.mp4"
+          retention-days: 90
+
   selenium-hub:
     runs-on: ubuntu-latest
     steps:
