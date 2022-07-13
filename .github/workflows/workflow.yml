@@ -16,7 +16,7 @@ jobs:
       - name: Test chrome standalone with nightwatch
         run: docker-compose -f docker-compose.chrome.yml up --exit-code-from nightwatch
       - name: Run ls command
-        run: ls -la
+        run: ls -la videos
       - uses: actions/upload-artifact@v2
         with:
           name: chrome-video
