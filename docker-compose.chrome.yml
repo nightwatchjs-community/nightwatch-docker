@@ -9,7 +9,7 @@ services:
       test: chromedriver --version
 
   chrome_video:
-    image: selenium/video:ffmpeg
+    image: selenium/video
     volumes:
       - ./videos:/videos
     depends_on:
