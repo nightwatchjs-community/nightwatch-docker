@@ -15,6 +15,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test chrome standalone with nightwatch
         run: docker-compose -f docker-compose.chrome.yml up --exit-code-from nightwatch
+      - uses: actions/upload-artifact@v2
+        with:
+          name: chrome-video
+          path: "*.mp4"
+          retention-days: 30
   firefox:
     runs-on: ubuntu-latest
     steps:
