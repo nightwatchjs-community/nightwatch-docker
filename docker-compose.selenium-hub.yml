@@ -12,6 +12,16 @@ services:
     healthcheck:
       test: chromedriver --version
 
+  chrome_video:
+    image: selenium/video
+    volumes:
+      - ./videos:/videos
+    depends_on:
+      - chrome
+    environment:
+      - DISPLAY_CONTAINER_NAME=chrome
+      - FILE_NAME=selenium_chrome_video.mp4
+
   edge:
     image: selenium/node-edge
     shm_size: 2gb
@@ -24,6 +34,16 @@ services:
     healthcheck:
       test: msedgedriver --version
 
+  edge_video:
+    image: selenium/video
+    volumes:
+      - ./videos:/videos
+    depends_on:
+      - edge
+    environment:
+      - DISPLAY_CONTAINER_NAME=edge
+      - FILE_NAME=selenium_edge_video.mp4
+
   firefox:
     image: selenium/node-firefox
     shm_size: 2gb
@@ -35,6 +55,17 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     healthcheck:
       test: geckodriver --version
+
+  firefox_video:
+    image: selenium/video
+    volumes:
+      - ./videos:/videos
+    depends_on:
+      - firefox
+    environment:
+      - DISPLAY_CONTAINER_NAME=firefox
+      - FILE_NAME=selenium_firefox_video.mp4
+
 
   selenium-hub:
     image: selenium/hub
